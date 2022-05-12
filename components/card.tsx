@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native';
 import { View, Text } from '../components/Themed';
 
 
-export default function Card({ todo }) {
+export default function Card({ todo }: any) {
     var width = Dimensions.get('window').width;
     return (
         <View style={{

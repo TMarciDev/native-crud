@@ -8,15 +8,13 @@ import { RootTabScreenProps } from '../types';
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Card from '../components/card';
 
+import { create, getItems } from '../Firebase'
+
 const COLORS = { primary: '#1f145c', white: '#fff' }
 var width = Dimensions.get('window').width;
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-
-  const [items, setItems] = React.useState([
-    { id: 1, task: 'first card', completed: true },
-    { id: 2, task: 'second card', completed: false },
-  ])
+  const [items, setItems] = React.useState([])
 
   const [textInput, setTextInput] = React.useState('')
 
@@ -31,6 +29,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       task: textInput,
       completed: false
     }
+    create(textInput);
     setItems([...items, newTodo])
   }
   return (
