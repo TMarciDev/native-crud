@@ -1,12 +1,14 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 import { View, Text } from '../components/Themed';
 
 
-export default function Card({ todo }) {
+export default function Card({ todo }: any) {
+    var width = Dimensions.get('window').width;
     return (
         <View style={{
-            backgroundColor: 'grey', width: '90vw',
-            padding: '15px', margin: '5px', borderRadius: 30,
+            backgroundColor: 'grey', width: width - 35,
+            padding: 15, marginBottom: 10, borderRadius: 30,
         }}>
             <Text>{todo?.item.task}</Text>
         </View>
